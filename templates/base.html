@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <!-- stylesheet info would go here -->
+    {% endblock %}
+  </head>
+  <body>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div id="footer">
+      {% block footer %}
+        Sean Sheedy - @phonedeveloper - PhoneDeveloper.com<br />
+        Built for Verizon Cloud Hackathon, April 20-21, 2015.<br />
+        Source on <a href="https://github.com/phonedeveloper">Github</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>
