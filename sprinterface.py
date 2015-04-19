@@ -12,6 +12,10 @@ app = Flask(__name__)
 def login_form():
   return render_template('login.html')
 
+@app.route('/game')
+def game_login_form():
+  return render_template('game_login.html')
+
 @app.route('/login', methods = ['POST'])
 def do_login():
   username = request.form['username']
