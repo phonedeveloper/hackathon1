@@ -16,13 +16,13 @@ def login_form():
 def do_login():
   username = request.form['username']
   password = request.form['password']
-  payload = '{"userName":"' + username + '","password":"' + password + '"}'
-  headers = {'Accepts-Encoding':'application-json'}
+  payload = '{\n  "userName": "' + username + '",\n  "password": "' + password + '"\n}'
+  # headers = {'Accepts-Encoding':'application-json'}
   auth = {config['securedb_user'], config['securedb_pass']}
   response = requests.post(config['securedb_authenticate_url'], 
-                      data=json.dumps(payload),
+                      data=payload,
                       auth=(config['securedb_user'], config['securedb_pass']),
-                      headers={'Accept-Encoding':'application-json'})
+                      headers={'Accept-Encoding':'application-json','Content-Type':'application/json'})
                     
   if (response.status_code != 200):
     print response.status_code
@@ -30,6 +30,24 @@ def do_login():
     return render_template('login_failed.html')
   else:
     return "woot!" # response.content
+
+@app.route('/game_login', methods = ['POST'])
+def do_game_login():
+  username = request.form['username']
+  password = request.form['password']
+  payload = '{\n  "userName": "' + username + '",\n  "password": "' + password + '"\n}'
+  # headers = {'Accepts-Encoding':'application-json'}
+  auth = {config['securedb_user'], config['securedb_pass']}
+  response = requests.post(config['securedb_authenticate_url'], 
+                      data=payload,
+                      auth=(config['securedb_user'], config['securedb_pass']),
+                      headers={'Accept-Encoding':'application-json','Content-Type':'application/json'})
+                    
+  if (response.status_code != 200):
+    print "false"
+  else:
+    return "true" # response.content
+
 
 # for another hackathon friend
 @app.route('/test_score')
@@ -51,7 +69,8 @@ def get_score():
   f = open('score','r')
   score = f.read()
   f.close()
-  return '{"score":"' + str(score) + '"}'
+  return score
+  # return '{"score":"' + str(score) + '"}'
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080, debug=True)
