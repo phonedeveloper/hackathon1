@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <form id="score" action="/set_score" method="post">
+    Score:<br />
+    <input id="score" type="text" name="score" /><br />
+    <input id="submit" type="submit" value="Submit" />
+  </form>
+{% endblock %}
+
