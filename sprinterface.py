@@ -48,7 +48,7 @@ def do_game_login():
                       headers={'Accept-Encoding':'application-json','Content-Type':'application/json'})
                     
   if (response.status_code != 200):
-    print "false"
+    return "false"
   else:
     return "true" # response.content
 
