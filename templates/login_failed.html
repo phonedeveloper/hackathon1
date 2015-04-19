@@ -3,6 +3,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+  <div id="login_failed">Login failed, please try again.</div>
   <form id="login" action="/login" method="post">
     Username:<br />
     <input id="username" type="text" name="username" /><br />

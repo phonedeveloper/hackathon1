@@ -1,0 +1,13 @@
+#body {
+  width: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+  

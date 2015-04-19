@@ -2,20 +2,23 @@
 <html>
   <head>
     {% block head %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <!-- stylesheet info would go here -->
     {% endblock %}
   </head>
   <body>
+    <div id="body">
     <div id="content">
       {% block content %}
       {% endblock %}
     </div>
     <div id="footer">
       {% block footer %}
-        Sean Sheedy - @phonedeveloper - PhoneDeveloper.com<br />
+        Sean Sheedy &bull; <a href="http://twitter.com/phonedeveloper">@phonedeveloper</a> &bull; <a href="http://google.com/+phonedeveloper">google.com/+PhoneDeveloper</a><br />
         Built for Verizon Cloud Hackathon, April 20-21, 2015.<br />
-        Source on <a href="https://github.com/phonedeveloper">Github</a>.
+        Source at <a href="https://github.com/phonedeveloper">github.com/phonedeveloper</a>.
       {% endblock %}
+    </div>
     </div>
   </body>
 </html>
